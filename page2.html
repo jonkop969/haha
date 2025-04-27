@@ -27,25 +27,35 @@
       background-color: rgba(0,0,0,0.8);
       justify-content: center;
       align-items: center;
+      flex-direction: column; /* <-- tambahin ini supaya anak-anaknya ditumpuk vertikal */
       z-index: 1;
+      padding: 20px; /* Biar ada jarak dikit */
+      box-sizing: border-box;
     }
 
     .popup img {
-      max-width: 90%;
-      max-height: 90%;
+      max-width: 300px; /* Ukuran tiap gambar */
+      max-height: 200px;
+      margin: 10px 0; /* Jarak antar gambar */
       border: 3px solid #0ff;
       border-radius: 20px;
       box-shadow: 0 0 20px #0ff, 0 0 40px #00f;
+      animation: zoomIn 1s ease;
     }
 
     .popup.show {
       display: flex;
-      animation: zoomIn 1s ease;
+      animation: fadeIn 1s ease;
     }
 
     @keyframes zoomIn {
       from { transform: scale(0.5); opacity: 0; }
       to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     .back-btn {
@@ -60,7 +70,7 @@
       border-radius: 10px;
       text-decoration: none;
       transition: 0.3s;
-      z-index: 2; /* memastikan tombol kembali berada di atas */
+      z-index: 2;
     }
 
     .back-btn:hover {
@@ -72,16 +82,9 @@
       color: #0ff;
       font-size: 1.5em;
       margin-top: 20px;
-      text-align: left; /* Ubah text-align menjadi left untuk memposisikan teks ke kiri */
-      margin-left: 50px; /* Geser teks ke kanan dengan margin-left */
+      text-align: center;
       animation: fadeIn 1s ease;
       text-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 30px #0ff;
-
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
     }
   </style>
 </head>
@@ -89,8 +92,9 @@
   <a href="index.html" class="back-btn">Kembali</a>
 
   <div class="popup" id="popup">
-    <img src="ruksak.jpg" alt="Cyber Surprise">
-    <!-- Teks di bawah gambar -->
+    <img src="beduk.jpeg" alt="Cyber Surprise 1">
+    <img src="jeki.jpeg" alt="Cyber Surprise 2">
+    <img src="peih.jpeg" alt="Cyber Surprise 3">
     <p class="popup-text">RUKSAKKKKK!</p>
   </div>
 
